@@ -1257,8 +1257,11 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">_model</span><span class="p">,</span> <span class="n">model_class</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">prob_function</span>
 
-    <span class="c1"># Default fallback for unmatched models</span>
-    <span class="k">return</span> <span class="n">compute_default_router_probabilities</span></div>
+    <span class="c1"># Raise error for unsupported models to prevent incorrect router probability computation</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;No router probability function defined for model type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">_model</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">. &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Supported models: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="bp">cls</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">ROUTER_PROBABILITY_FUNCTIONS</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span></div>
 
 
 
