@@ -462,7 +462,7 @@
     <span class="n">OlmoeForCausalLM</span><span class="p">,</span>
     <span class="n">OPTForCausalLM</span><span class="p">,</span>
     <span class="n">Qwen2ForCausalLM</span><span class="p">,</span>
-    <span class="n">Qwen3ForCausalLM</span><span class="p">,</span>
+    <span class="n">Qwen3MoeForCausalLM</span><span class="p">,</span>
     <span class="n">display_markdown</span><span class="p">,</span>
     <span class="n">dummy_inputs</span><span class="p">,</span>
     <span class="n">is_notebook</span><span class="p">,</span>
@@ -634,7 +634,7 @@
 <span class="n">LAYER_RETURNS_TENSOR_AFTER_454_MODELS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">LlamaForCausalLM</span><span class="p">,</span>
     <span class="n">Qwen2ForCausalLM</span><span class="p">,</span>
-    <span class="n">Qwen3ForCausalLM</span><span class="p">,</span>
+    <span class="n">Qwen3MoeForCausalLM</span><span class="p">,</span>
     <span class="n">GptOssForCausalLM</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -1247,6 +1247,7 @@
 <span class="n">ROUTER_PROBABILITY_FUNCTIONS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">OlmoeForCausalLM</span><span class="p">:</span> <span class="n">compute_unnormalized_router_probabilities</span><span class="p">,</span>
     <span class="n">GptOssForCausalLM</span><span class="p">:</span> <span class="n">compute_default_router_probabilities</span><span class="p">,</span>
+    <span class="n">Qwen3MoeForCausalLM</span><span class="p">:</span> <span class="n">compute_default_router_probabilities</span><span class="p">,</span>
     <span class="c1"># LlamaForCausalLM: compute_sigmoid_router_probabilities,  # future work</span>
 <span class="p">}</span>
 
